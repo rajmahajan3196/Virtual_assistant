@@ -5,13 +5,15 @@ import webbrowser
 import smtplib
 import sys
 import datetime
+from playsound import playsound
 
 
 def talkToMe(audio):
     print(audio)
     tts = gTTS(text=audio, lang='en-us')
     tts.save('audio.mp3')
-    os.system('mpg123 audio.mp3')
+    # os.system('mpg321 audio.mp3')
+    playsound('audio.mp3')
 
 # listens
 
@@ -21,7 +23,7 @@ def myCommand():
     r = sr.Recognizer()
 
     with sr.Microphone() as source:
-        print('_Proton command acceptor active_')
+        print('_Proton command listerner active_')
         r.pause_threshold = 1
         r.adjust_for_ambient_noise(source, duration=1)
         audio = r.listen(source)
@@ -73,13 +75,13 @@ def assistant(command):
         if command[3] is None:
             location = command[2]
         else:
-            location=command[2]+' '+command[3]+' '+command[4]
+            location = command[2]+' '+command[3]+' '+command[4]
         talkToMe("Hold on, I will show you where " + location + " is.")
         url = 'https://www.google.nl/maps/place/'+location
         chrome_path = '/usr/bin/google-chrome --no-sandbox %s'
         webbrowser.get(chrome_path).open(url)
 
-    if "email" in command:  
+    if "email" in command:
         talkToMe(' To whom? ')
         recipient = myCommand()
 
