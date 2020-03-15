@@ -1,3 +1,3 @@
-# Virutal_assistant
+# Virtual_assistant
 
 A simple virtual assistant made in Python
