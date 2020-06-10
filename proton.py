@@ -96,7 +96,7 @@ def assistant(command):
             smtp = smtplib.SMTP('smtp.gmail.com', 587)
             smtp.ehlo()
             smtp.starttls()
-            smtp.login('protonassistant@gmail.com', 'protonraj123')
+            smtp.login('protonassistant@gmail.com', '')
             smtp.sendmail('protonassistant@gmail.com', [
                           'mahajandev68@gmail.com', ''], message)
             smtp.quit()
@@ -113,7 +113,7 @@ def assistant(command):
             smtp = smtplib.SMTP('smtp.gmail.com', 587)
             smtp.ehlo()
             smtp.starttls()
-            smtp.login('protonassistant@gmail.com', 'protonraj123')
+            smtp.login('protonassistant@gmail.com', '')
             smtp.sendmail('protonassistant@gmail.com', [
                           'rajmj3113@gmail.com', ''], message)
             smtp.quit()
